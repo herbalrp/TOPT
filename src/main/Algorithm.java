@@ -118,7 +118,7 @@ public class Algorithm {
 	            Integer Index1 = rand.nextInt(NumberOfPair);
 	            Integer Index2 = rand.nextInt(NumberOfPair);
 	            
-	            List<Chromosome> Children = new ArrayList();
+	            List<Chromosome> Children = new ArrayList<>();
 	            Children=crossThisPair(population.get(Index1), population.get(Index2));
 	            population.addAll(Children);
 	        }
@@ -142,7 +142,7 @@ public class Algorithm {
 			points2.set(index2, tmp);
 		}
 		
-		List<Chromosome> list = new ArrayList();
+		List<Chromosome> list = new ArrayList<>();
 		list.add(new Chromosome(points1));
 		list.add(new Chromosome(points2));
 		
@@ -150,7 +150,7 @@ public class Algorithm {
 	}
 
 	private List<Double> copy(List<Double> points) {
-		ArrayList<Double> list = new ArrayList();
+		ArrayList<Double> list = new ArrayList<>();
 		for(Double d : points)
 		{
 			list.add(d);
