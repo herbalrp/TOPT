@@ -36,6 +36,11 @@ public class Algorithm {
 
 	public String start(double fmin, double fmax, int interspace, int number) {
 		
+		if(!isSolvable(fmax-fmin, number)) {
+			String s = "Zadane parametry nie mają rozwiązania.";
+			return s;
+		}
+		
 		this.fmin=fmin;
 		//System.out.println(fmin);
 		this.fmax=fmax;
@@ -264,6 +269,20 @@ public class Algorithm {
 		return chrom;
 	}
 
-	
+	private boolean isSolvable(int freqDiff, int numberOfFrequencies) {
+		
+		boolean returnValue = false;
+		System.out.println("freqDiff: " + freqDiff + ", numberOfFrequencies:" + numberOfFrequencies);
+		//										 0   1   2  3  4   5   6   7   8   9  10  11, 12,  13,  14,  15,  16
+		Integer[] possibleMaxSolutionsArray = { -1, -1, -1, 3, 6, 11, 17, 25, 34, 44, 55, 72, 85, 106, 127, 151, 177 };
+		if (numberOfFrequencies > possibleMaxSolutionsArray.length) {
+			returnValue = true;
+		}
+		else if (possibleMaxSolutionsArray[numberOfFrequencies] <= freqDiff) {
+			returnValue = true;
+		}
+		
+		return returnValue;
+	}
 
 }
